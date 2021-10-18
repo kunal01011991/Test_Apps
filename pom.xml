@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.inn.rcp</groupId>
+		<artifactId>rcp-parent</artifactId>
+		<version>2.1.5</version>	
+	</parent>
+	<version>1.0.DEV</version>
+	<artifactId>ipam</artifactId>
+	<packaging>pom</packaging>
+	<name>IPAM</name>
+
+	<properties>
+		<sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco-aggregate/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+		<sonar.exclusions>
+			**src/main/java/com/inn/foresight/module/ipam/core/service/impl/SubnetServiceImpl.java,
+			**src/main/java/com/inn/foresight/module/ipam/core/service/impl/IPAddressServiceImpl.java,
+			**src/main/java/com/inn/foresight/module/ipam/service/impl/IPAMMultithreader.java,
+
+		</sonar.exclusions>
+		<checkstyle.conf>${basedir}/../conf/checkstyle.xml</checkstyle.conf>
+
+		<rcp.version>1.0.0</rcp.version>
+		<um-api-version>2.1.0</um-api-version>
+		<rcp-core-version>2.1.6</rcp-core-version>
+		<rcp-workflowmanagement-api-version>3.3.0</rcp-workflowmanagement-api-version>
+		<rcp-mysql-impl-version>2.1.2</rcp-mysql-impl-version>
+		<platform-utility-api-version>2.1.0</platform-utility-api-version>
+		<platform-meta-api-version>2.1.10</platform-meta-api-version>
+		<commons-cloud-storage-version>3.3.1</commons-cloud-storage-version>	
+	</properties>
+
+
+	<repositories>
+	
+		<repository>
+			<id>internal-repository</id>
+			<url>https://repo.maven.apache.org/maven2</url>
+			<releases>
+				<updatePolicy>always</updatePolicy>
+			</releases>
+		</repository>
+		<!--
+		<repository>
+                        <id>internal-repository-rcp</id>
+                        <url>https://repo.maven.apache.org/maven2</url>
+                        <releases>
+                                <updatePolicy>always</updatePolicy>
+                        </releases>
+		</repository> -->
+		<repository>
+			<id>central</id>
+			<name>Maven Repository Switchboard</name>
+			<layout>default</layout>
+			<url>https://repo.maven.apache.org/maven2</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<modules>
+
+		<module>rcp-name-management-api</module>
+		<module>rcp-name-management</module>
+		<module>rcp-ipam-api</module>
+		<module>rcp-ipam</module>
+		<module>rcp-ipam-service</module>
+
+	</modules>
+
+</project>
+
